@@ -16,6 +16,8 @@
     }
   ],
   "require": {
-    "bead/framework": "dev-production"
+    "bead/framework": "dev-production",
+    "php": "^7.4|^8.0",
+    "ext-pdo": "*"
   }
 }

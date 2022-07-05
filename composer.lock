@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/darrenedale/bead-framework.git",
-                "reference": "35246b19243409f94167bf5d15185ed66b98b561"
+                "reference": "aaafee9676a79644290f721b69aa6aa4d2e9eace"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/darrenedale/bead-framework/zipball/35246b19243409f94167bf5d15185ed66b98b561",
-                "reference": "35246b19243409f94167bf5d15185ed66b98b561",
+                "url": "https://api.github.com/repos/darrenedale/bead-framework/zipball/aaafee9676a79644290f721b69aa6aa4d2e9eace",
+                "reference": "aaafee9676a79644290f721b69aa6aa4d2e9eace",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
             "support": {
                 "source": "https://github.com/darrenedale/bead-framework/tree/production"
             },
-            "time": "2022-07-05T16:18:54+00:00"
+            "time": "2022-07-05T18:20:16+00:00"
         }
     ],
     "packages-dev": [],

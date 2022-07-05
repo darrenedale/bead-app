@@ -4,7 +4,7 @@ return [
     // The location of the app's log file.
     //
     // All error and warning messages will be appended to this file.
-    // If debugmode is enabled, any debugging messages will also be written to this file.
+    // If debug mode is enabled, any debugging messages will also be written to this file.
 	"logfile" => "logs/app.log",
 
     // Whether to enable debug mode.
@@ -21,6 +21,6 @@ return [
     // The application's display title
 	"title" => "Bead Framework Application",
 
-	// where views for HTTP error response contet are located
+	// where views for HTTP error response content are located
     "http.error.view.path" => "errors",
 ];

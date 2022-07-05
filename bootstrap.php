@@ -1,5 +1,8 @@
 <?php
 
+// bootstrapping that is common to both the web app and console commands
+
+// register an autoloader for the app's classes
 spl_autoload_register(function(string $className): void {
 	if (!str_starts_with($className, "App\\")) {
 		return;
@@ -15,4 +18,5 @@ spl_autoload_register(function(string $className): void {
 	require_once($path);
 });
 
+// include the composer autoloader
 require_once(__DIR__ . "/vendor/autoload.php");

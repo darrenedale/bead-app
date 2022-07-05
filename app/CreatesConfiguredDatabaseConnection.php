@@ -2,13 +2,28 @@
 
 namespace App;
 
-use Equit\DatabaseConnection;
+use Equit\Database\Connection;
 
+/**
+ * Trait for Application class(es) to consistently instantiate the configured database connection.
+ */
 trait CreatesConfiguredDatabaseConnection
 {
+	/**
+	 * Constrain the trait to classes that provide access to config (i.e. Application subclasses).
+	 *
+	 * @param string $key THe configuration key sought.
+	 * @param mixed $default The default value to return if the key does not exist.
+	 *
+	 * @return mixed The value, or `null` if it is not present and no default was provided.
+	 */
 	public abstract function config(string $key, $default = null);
 
-	protected function configuredDatabaseConnection(): ?DatabaseConnection
+	/**
+	 * Create a database connection if one is configured in `config/db.php`.
+	 * @return Connection|null
+	 */
+	protected function configuredDatabaseConnection(): ?Connection
 	{
 		if (!empty($this->config("db.db"))) {
 			$resource = "{$this->config("db.type")}:host={$this->config("db.host")};dbname={$this->config("db.name")}";
@@ -21,7 +36,7 @@ trait CreatesConfiguredDatabaseConnection
 				$resource .= ";charset={$this->config("db.charset")}";
 			}
 
-			return new DatabaseConnection($resource, $this->config("db.user"), $this->config("db.password"));
+			return new Connection($resource, $this->config("db.user"), $this->config("db.password"));
 		}
 
 		return null;
