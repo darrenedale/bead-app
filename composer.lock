@@ -1,0 +1,78 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2c0d4190ce37efb71554a9c1c2f24b16",
+    "packages": [
+        {
+            "name": "bead/framework",
+            "version": "dev-production",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/darrenedale/bead-framework.git",
+                "reference": "35246b19243409f94167bf5d15185ed66b98b561"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/darrenedale/bead-framework/zipball/35246b19243409f94167bf5d15185ed66b98b561",
+                "reference": "35246b19243409f94167bf5d15185ed66b98b561",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-iconv": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-pdo": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Equit\\": "src"
+                },
+                "files": [
+                    "src/includes/array.php",
+                    "src/includes/i18n.php",
+                    "src/includes/string.php",
+                    "src/includes/traversable.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Equit\\Test\\": "test"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Darren Edale",
+                    "email": "packagist@equituk.net"
+                }
+            ],
+            "description": "An (incomplete) PHP application framework",
+            "support": {
+                "source": "https://github.com/darrenedale/bead-framework/tree/production"
+            },
+            "time": "2022-07-05T16:18:54+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "bead/framework": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

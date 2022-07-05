@@ -1,0 +1,21 @@
+{
+  "name": "bead/app",
+  "description": "Skeleton app using the bead framework",
+  "minimum-stability": "stable",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Darren Edale",
+      "email": "email@example.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/darrenedale/bead-framework.git"
+    }
+  ],
+  "require": {
+    "bead/framework": "dev-production"
+  }
+}
