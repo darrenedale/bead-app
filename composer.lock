@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c0d4190ce37efb71554a9c1c2f24b16",
+    "content-hash": "82277d2e2601b83cc1777c7ae9563969",
     "packages": [
         {
             "name": "bead/framework",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/darrenedale/bead-framework.git",
-                "reference": "aaafee9676a79644290f721b69aa6aa4d2e9eace"
+                "reference": "3015d7769e2d60419dcbf0d57f2aa94703eb0077"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/darrenedale/bead-framework/zipball/aaafee9676a79644290f721b69aa6aa4d2e9eace",
-                "reference": "aaafee9676a79644290f721b69aa6aa4d2e9eace",
+                "url": "https://api.github.com/repos/darrenedale/bead-framework/zipball/3015d7769e2d60419dcbf0d57f2aa94703eb0077",
+                "reference": "3015d7769e2d60419dcbf0d57f2aa94703eb0077",
                 "shasum": ""
             },
             "require": {
@@ -28,6 +28,7 @@
                 "ext-pdo": "*"
             },
             "require-dev": {
+                "ext-uopz": "^6||^7",
                 "phpunit/phpunit": "^9.5"
             },
             "default-branch": true,
@@ -61,7 +62,7 @@
             "support": {
                 "source": "https://github.com/darrenedale/bead-framework/tree/production"
             },
-            "time": "2022-07-05T18:20:16+00:00"
+            "time": "2022-08-28T13:34:00+00:00"
         }
     ],
     "packages-dev": [],
@@ -72,7 +73,10 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.4|^8.0",
+        "ext-pdo": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }

@@ -19,5 +19,10 @@
     "bead/framework": "dev-production",
     "php": "^7.4|^8.0",
     "ext-pdo": "*"
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "@php -r 'mkdir(\"app/Plugins\");'"
+    ]
   }
 }
