@@ -25,7 +25,7 @@ trait CreatesConfiguredDatabaseConnection
 	 */
 	protected function configuredDatabaseConnection(): ?Connection
 	{
-		if (!empty($this->config("db.db"))) {
+		if (!empty($this->config("db.name"))) {
 			$resource = "{$this->config("db.type")}:host={$this->config("db.host")};dbname={$this->config("db.name")}";
 
 			if (!empty($this->config("db.port"))) {

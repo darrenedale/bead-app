@@ -11,7 +11,7 @@ return [
 	"port" => "3306",
 
     // what's the name of the db?
-	"db" => "",
+	"name" => "",
 
     // what's the username to use when connecting?
 	"user" => "",
