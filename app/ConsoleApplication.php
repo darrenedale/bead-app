@@ -18,7 +18,7 @@ class ConsoleApplication extends BaseApplication
 	 */
 	public function __construct()
 	{
-		parent::__construct(__DIR__ . "../");
+		parent::__construct(__DIR__ . "/../");
 
 		$this->setErrorHandler(new ErrorHandler());
 		$db = $this->configuredDatabaseConnection();
