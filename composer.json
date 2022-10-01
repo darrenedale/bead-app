@@ -22,7 +22,8 @@
   },
   "scripts": {
     "post-create-project-cmd": [
-      "@php -r 'mkdir(\"app/Plugins\");'"
+      "@php -r 'mkdir(\"app/Plugins\");'",
+      "@php -r 'foreach (new DirectoryIterator(\"config/sample\") as $configFile) { if ($configFile->isDot()) continue; copy($configFile->getPathName(), \"config/{$configFile->getFileName()}\"); }'"
     ]
   }
 }
