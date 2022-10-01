@@ -5,6 +5,6 @@
  * @var \Equit\Contracts\Router $router
  */
 
-use \App\Controllers\HomeController;
+use App\Controllers\HomeController;
 
 $router->registerAny("/", [HomeController::class, "showHomePage"]);
