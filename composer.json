@@ -9,14 +9,8 @@
       "email": "email@example.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/darrenedale/bead-framework.git"
-    }
-  ],
   "require": {
-    "bead/framework": "dev-production",
+    "bead/framework": "^0.9|^1.0",
     "php": "^7.4|^8.0",
     "ext-pdo": "*"
   },
