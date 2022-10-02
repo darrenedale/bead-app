@@ -1,0 +1,54 @@
+/**
+ * Common dimensions and measurements for the app.
+ */
+
+$hPadding: 20px;
+$vPadding: 10px;
+
+$hPaddingSmall: ceil($hPadding / 2);
+$vPaddingSmall: ceil($vPadding / 2);
+
+$hPaddingLarge: $hPadding * 2;
+$vPaddingLarge: $vPadding * 2;
+
+$hMargin: $hPadding;
+$vMargin: $hMargin;
+
+$hMarginSmall: ceil($hMargin / 2);
+$vMarginSmall: ceil($vMargin / 2);
+
+$hMarginLarge: $hMargin * 2;
+$vMarginLarge: $vMargin * 2;
+
+$headerTextSize: 16pt;
+$mainTextSize: 12pt;
+
+@mixin normalPadding
+{
+  padding: $vPadding $hPadding;
+}
+
+@mixin smallPadding
+{
+  padding: $vPadding $hPadding;
+}
+
+@mixin largePadding
+{
+  padding: $vPadding $hPadding;
+}
+
+@mixin normalMargin
+{
+  margin: $vMargin $hMargin;
+}
+
+@mixin smallMargin
+{
+  margin: $vMargin $hMargin;
+}
+
+@mixin largeMargin
+{
+  margin: $vMargin $hMargin;
+}

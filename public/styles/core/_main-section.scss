@@ -1,0 +1,6 @@
+@use "../includes/dimensions";
+
+section#app-main
+{
+  @include dimensions.normalPadding;
+}

@@ -15,7 +15,11 @@ use Equit\View;
 
 <?php View::section("main"); ?>
 <p>
-    This application is running on the Bead framework. Bead is a lightweight PHP MVC web application framework with
-    built-in ORM, validation and error handling.
+    This app is running on the
+    <a href="https://github.com/darrenedale/bead-framework" title="See the bead framework on GitHub.">Bead framework</a>.
+</p>
+
+<p>
+    Bead is a lightweight PHP MVC web application framework with built-in ORM, validation and error handling.
 </p>
 <?php View::endSection(); ?>
