@@ -19,13 +19,25 @@ use Equit\View;
 <html lang="en">
 <head>
 	<title><?= html($app->config("app.title")) ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/styles/app.css" />
     <?php View::stack("styles"); ?>
     <?php View::stack("scripts"); ?>
 </head>
-<body>
-<h1><?= html($app->config("app.title")) ?></h1>
 
-<?php View::yieldSection("main"); ?>
+<body>
+
+    <header id="app-header">
+        <img class="header-logo" src="/images/bead-logo.png" alt="Logo" title="<?= html($app->config("app.title")) ?>" />
+        <h1><?= html($app->config("app.title")) ?></h1>
+    </header>
+
+    <section id="app-main" class="main">
+        <?php View::yieldSection("main"); ?>
+    </section>
+
+    <footer id="app-footer">
+    </footer>
 
 </body>
 </html>

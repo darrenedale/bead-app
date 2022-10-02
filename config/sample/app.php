@@ -19,7 +19,7 @@ return [
 	"timezone" => "europe/london",
 
     // The application's display title
-	"title" => "Bead Framework Application",
+	"title" => "Bead Framework App",
 
 	// where views for HTTP error response content are located
     "http.error.view.path" => "errors",

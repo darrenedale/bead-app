@@ -1,0 +1,28 @@
+@use "../includes/colours";
+@use "../includes/dimensions";
+
+html
+{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: colours.$mainTextForeground;
+  font-size: dimensions.$mainTextSize;
+}
+
+body
+{
+  margin: 0;
+  padding: 0;
+}
+
+a
+{
+  color: colours.$mainLinkForeground;
+  text-decoration: none;
+
+  &:hover
+  {
+    text-decoration: underline;
+  }
+}

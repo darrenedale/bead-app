@@ -1,0 +1,27 @@
+@use "../includes/colours";
+@use "../includes/dimensions";
+
+header
+{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  column-gap: dimensions.$hPadding;
+  margin: 0;
+  @include dimensions.normalPadding;
+  width: 100%;
+  font-size: dimensions.$headerTextSize;
+  background-color: colours.$headerBackground;
+  color: colours.$headerForeground;
+
+  > img.header-logo
+  {
+    width: 50px;
+    height: 50px;
+  }
+
+  > h1
+  {
+    font-size: inherit;
+  }
+}
