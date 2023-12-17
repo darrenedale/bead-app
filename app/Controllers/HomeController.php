@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use Equit\View;
-use Equit\Request;
+use Bead\View;
+use Bead\Web\Request;
 
 /**
  * Home page controller.
@@ -13,7 +13,7 @@ class HomeController
 	/**
 	 * Show the app's home page.
 	 *
-	 * @param \Equit\Request $request The incoming request.
+	 * @param Request $request The incoming request.
 	 *
 	 * @return View The home page view.
 	 */

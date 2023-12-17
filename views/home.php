@@ -5,21 +5,22 @@
  *
  * The home page view uses the main layout, providing the custom content for the home page in the `main` section.
  *
- * @var \Equit\WebApplication $app The Application instance.
+ * @var Application $app The Application instance.
  */
 
-use Equit\View;
+use Bead\View;
+use Bead\Web\Application;
 
 ?>
 <?php View::layout("layouts.main"); ?>
 
 <?php View::section("main"); ?>
 <p>
-    This app is running on the
-    <a href="https://github.com/darrenedale/bead-framework" title="See the bead framework on GitHub.">Bead framework</a>.
+    <?= html(tr("home.intro.para1.1")) ?>
+    <a href="https://github.com/darrenedale/bead-framework" title="<?= html(tr("See the bead framework on GitHub.")) ?>">Bead framework</a>.
 </p>
 
 <p>
-    Bead is a lightweight PHP MVC web application framework with built-in ORM, validation and error handling.
+    <?= html(tr("home.intro.para2")) ?>
 </p>
 <?php View::endSection(); ?>

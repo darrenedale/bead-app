@@ -1,10 +1,12 @@
 <?php
 
 /**
- * @var \Equit\WebApplication $app
- * @var \Equit\Contracts\Router $router
+ * @var Application $app
+ * @var Router $router
  */
 
 use App\Controllers\HomeController;
+use Bead\Contracts\Router;
+use Bead\Web\Application;
 
-$router->registerAny("/", [HomeController::class, "showHomePage"]);
+$router->registerAny("/", [HomeController::class, "showHomePage",]);

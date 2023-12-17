@@ -10,14 +10,13 @@
     }
   ],
   "require": {
-    "bead/framework": "^0.9|^1.0",
-    "php": "^7.4|^8.0",
+    "bead/framework": "^1.0",
+    "php": "^8.0",
     "ext-pdo": "*"
   },
-  "scripts": {
-    "post-create-project-cmd": [
-      "@php -r 'mkdir(\"app/Plugins\");'",
-      "@php -r 'foreach (new DirectoryIterator(\"config/sample\") as $configFile) { if ($configFile->isDot()) continue; copy($configFile->getPathName(), \"config/{$configFile->getFileName()}\"); }'"
-    ]
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
   }
 }

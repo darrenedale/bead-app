@@ -9,10 +9,12 @@
  *
  * See `views/home.php` for an example.
  *
- * @var \Equit\WebApplication $app The Application instance.
+ * @var Application $app The Application instance.
+ * @var array $data The data provided to the view.
  */
 
-use Equit\View;
+use Bead\View;
+use Bead\Web\Application;
 
 ?>
 <!DOCTYPE html>
