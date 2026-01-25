@@ -10,8 +10,8 @@
     }
   ],
   "require": {
-    "bead/framework": "^1.0",
-    "php": "^8.0",
+    "bead/framework": "dev-production",
+    "php": "^8.1",
     "ext-pdo": "*"
   },
   "autoload": {

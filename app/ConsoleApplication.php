@@ -3,13 +3,13 @@
 namespace App;
 
 use Bead\Core\ConsoleApplication as BaseApplication;
-use RuntimeException;
 use Bead\Exceptions\ServiceAlreadyBoundException;
+use RuntimeException;
 
 /**
  * Base class for the app's console commands.
  */
-class ConsoleApplication extends BaseApplication
+abstract class ConsoleApplication extends BaseApplication
 {
 	/**
 	 * @throws RuntimeException If an Application instance has already been created.

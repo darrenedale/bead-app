@@ -2,11 +2,11 @@
 
 /**
  * @var Application $app
- * @var Router $router
+ * @var RouterContract $router
  */
 
 use App\Controllers\HomeController;
-use Bead\Contracts\Router;
+use Bead\Contracts\Web\Router as RouterContract;
 use Bead\Web\Application;
 
 $router->registerAny("/", [HomeController::class, "showHomePage",]);
