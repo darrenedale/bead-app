@@ -3,6 +3,7 @@
 use Bead\Core\Binders\Crypter;
 use Bead\Core\Binders\Database;
 use Bead\Core\Binders\Environment;
+use Bead\Core\Binders\Hasher;
 use Bead\Core\Binders\MailTransport;
 use Bead\Core\Binders\Logger;
 use Bead\Core\Binders\Translator;
@@ -75,6 +76,7 @@ return [
     "binders" => [
         Logger::class,
 //        Database::class,
+        Hasher::class,
         Crypter::class,
         Environment::class,
 //        MailTransport::class,
