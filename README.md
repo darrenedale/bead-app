@@ -67,4 +67,5 @@ subdirectories inside `config/`. All config files are loaded automatically as so
 The framework has encryption services built in. There are configured in the `crypto.php` config file (see the below for
 details on config files). In the default configuration the services are enabled and set up to use sodium, which means
 you need to specify an encryption key for your app. It is recommended that you do this by setting the
-`BEAD_APP_ENCRYPTION_KEY` environment variable in your app's `.env` file.
+`BEAD_APP_ENCRYPTION_KEY` environment variable in your app's `.env` file (never commit your .env file to your
+repository).
