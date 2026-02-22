@@ -3,8 +3,8 @@
 namespace App;
 
 use Bead\Core\ConsoleApplication as BaseApplication;
-use RuntimeException;
 use Bead\Exceptions\ServiceAlreadyBoundException;
+use RuntimeException;
 
 /**
  * Base class for the app's console commands.
