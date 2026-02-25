@@ -7,7 +7,6 @@ use App\Models\Migration as MigrationModel;
 use Bead\Contracts\Database\Migration as MigrationContract;
 use Bead\Exceptions\InvalidCommandLineArgumentException;
 use Bead\Exceptions\InvalidConfigurationException;
-use DateTime;
 use DirectoryIterator;
 use InvalidArgumentException;
 
@@ -22,6 +21,7 @@ use function preg_match;
 use function str_contains;
 use function str_starts_with;
 use function str_ends_with;
+use function usleep;
 use function usort;
 
 /** Console command to manage database migrations. */
@@ -99,7 +99,7 @@ class Migrate extends ConsoleApplication
                     (
                         migration VARCHAR(200) NOT NULL PRIMARY KEY,
                         description TEXT NOT NULL,
-                        up_at DATETIME NOT NULL
+                        up_at BIGINT NOT NULL
                     )
                 SQL
             );
@@ -108,14 +108,18 @@ class Migrate extends ConsoleApplication
 
     /**
      * @return string[] The names of applied migrations, in the reverse of the order they were applied (i.e. most
-     * recenlty applied first).
+     * recently applied first).
      */
     private function appliedMigrationNames(): array
     {
         $migrations = [];
 
         foreach (MigrationModel::queryLike("migration", "%") as $migration) {
-            $migrations[$migration->migration] = $migration->up_at;
+            // On 32-bit platforms the up_at timestamp is only measured in seconds so multiple migrations are likely to
+            // share the same timestamp. To avoid indeterminate ordering we append the migration class - since this is
+            // used to order the migrations when they are applied, appending it ensures that any migrations with the
+            // same timestamp will be reverted in the reverse of the order in which they were applied
+            $migrations[$migration->migration] = (8 <= PHP_INT_SIZE) ? $migration->up_at : "{$migration->up_at}-{$migration->migration}";
         }
 
         arsort($migrations);
@@ -207,10 +211,14 @@ class Migrate extends ConsoleApplication
             MigrationModel::create([
                 "migration" => $migration::class,
                 "description" => $migration->description(),
-                "up_at" => new DateTime(),
+                // we can't use (int) cast for microtime on 32-bit platforms so we have to use time()
+                "up_at" => (8 <= PHP_INT_SIZE ? (int) (microtime(true) * 1000) : time()),
             ]);
 
             $this->line("UP");
+
+            // ensure migration timestamps are at least 1ms apart
+            usleep(1000);
 
             if (null === $count) {
                 continue;
