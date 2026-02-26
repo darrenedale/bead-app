@@ -13,14 +13,15 @@ use InvalidArgumentException;
 use function array_keys;
 use function array_values;
 use function arsort;
+use function Bead\Helpers\I18n\tr;
 use function class_exists;
 use function in_array;
 use function is_subclass_of;
 use function ksort;
 use function preg_match;
 use function str_contains;
-use function str_starts_with;
 use function str_ends_with;
+use function str_starts_with;
 use function usleep;
 use function usort;
 
@@ -40,9 +41,9 @@ class Migrate extends ConsoleApplication
     /** Set the supported command-line args and description. */
     protected function configure(): void
     {
-        $this->setDescription("Manage the migrations for the app database.");
-        $this->addArgument("action", "What you want to do with the migrations", optional: true, default: "up");
-        $this->addOption("count", description: "How many migrations do you want to execute (if not provided, all available will be executed)", type: self::TypeInt, optional: true);
+        $this->setDescription(tr("Manage the migrations for the app database."));
+        $this->addArgument("action", tr("What you want to do with the migrations"), optional: true, default: "up");
+        $this->addOption("count", description: tr("How many migrations do you want to execute (if not provided, all available will be executed)"), type: self::TypeInt, optional: true);
     }
 
     /** @return string The path where migration classes are stored, relative to the app's root directory. */
@@ -60,7 +61,7 @@ class Migrate extends ConsoleApplication
             }
 
             if (str_contains($path, DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR)) {
-                throw new InvalidConfigurationException("db.migrations.path", "Migrations path must not contain any .. segments");
+                throw new InvalidConfigurationException("db.migrations.path", tr("Migrations path must not contain any .. segments"));
             }
 
             $this->migrationsPath = $path;
@@ -76,7 +77,7 @@ class Migrate extends ConsoleApplication
             $namespace = $this->config("db.migrations.namespace", self::DefaultMigrationsNamespace);
 
             if (!preg_match("/^(?:\\\\[a-zA-Z_][a-zA-Z0-9_]*)+\$/", $namespace)) {
-                throw new InvalidConfigurationException("db.migrations.namespace", "Expected valid migrations namespace, found \"{$namespace}\"");
+                throw new InvalidConfigurationException("db.migrations.namespace", tr("Expected valid migrations namespace, found \"%1\"", __FILE__, __LINE__, $namespace));
             }
 
             $this->migrationsNamespace = $namespace;
@@ -159,12 +160,12 @@ class Migrate extends ConsoleApplication
             }
 
             if (!class_exists($className)) {
-                $this->errorLine("File \"{$entry->getFilename()}\" does not define the class '{$className}'.");
+                $this->errorLine(tr("File \"%1\" does not define the class \"%2\".", __FILE__, __LINE__, $entry->getFilename(), $className));
                 continue;
             }
 
             if (!is_subclass_of($className, MigrationContract::class)) {
-                $this->errorLine("Class \"{$className}\" is not a migration class.");
+                $this->errorLine(tr("Class \"%1\" is not a migration class.", __FILE__, __LINE__, $className));
                 continue;
             }
 
@@ -215,7 +216,7 @@ class Migrate extends ConsoleApplication
                 "up_at" => (8 <= PHP_INT_SIZE ? (int) (microtime(true) * 1000) : time()),
             ]);
 
-            $this->line("UP");
+            $this->line(tr("UP"));
 
             // ensure migration timestamps are at least 1ms apart
             usleep(1000);
@@ -244,7 +245,7 @@ class Migrate extends ConsoleApplication
             $this->write($migration::class . " ... ", $this->outStream());
             $migration->down($this->database());
             MigrationModel::removeEquals("migration", $migration::class);
-            $this->line("DOWN");
+            $this->line(tr("DOWN"));
 
             if (null === $count) {
                 continue;
@@ -279,7 +280,7 @@ class Migrate extends ConsoleApplication
             default => throw new InvalidArgumentException("Unrecognised action \"{$this->argumentValue("action")}\"."),
         };
 
-        $this->line("Now at {$this->currentMigration()}");
+        $this->line(tr("Now at %1", __FILE__, __LINE__, $this->currentMigration()));
         return $exitCode;
     }
 }
